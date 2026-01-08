@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "REX-OMNI debug",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "/data/lz/pythonProjects/REXOMNI-125/Rex-Omni/tutorials/detection_example/detection_example.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "env": {
+                "CUDA_VISIBLE_DEVICES": "3"
+            }
+        }
+    ]
+}

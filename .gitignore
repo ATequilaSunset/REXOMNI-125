@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+build/
+dist/
+*.egg-info/
+
+# 数据文件（太大不要提交）
+/data/
+*.h5
+*.pt
+*.pth
+*.npy
+
+# 日志
+logs/
+*.log
+
+# IDE
+.idea/
+
+# 虚拟环境（绝对不要提交！）
+/data/wgq/anaconda3/envs/rexomni/

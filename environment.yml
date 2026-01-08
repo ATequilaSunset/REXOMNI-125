@@ -1,0 +1,6 @@
+name: rexomni
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+prefix: /data/wgq/anaconda3/envs/rexomni
