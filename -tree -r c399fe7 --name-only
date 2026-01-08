@@ -1,0 +1,1281 @@
+[33mcommit c399fe7775a23f9615272eb8a4235434fa80c5a5[m[33m ([m[1;32mmaster[m[33m)[m
+Author: root <root@ubuntu22.04>
+Date:   Thu Jan 8 16:14:14 2026 +0800
+
+    0108
+
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mnew file mode 100644[m
+[1mindex 0000000..7a8991e[m
+[1m--- /dev/null[m
+[1m+++ b/.gitignore[m
+[36m@@ -0,0 +1,26 @@[m
+[32m+[m[32m# Python[m
+[32m+[m[32m__pycache__/[m
+[32m+[m[32m*.pyc[m
+[32m+[m[32m*.pyo[m
+[32m+[m[32m*.pyd[m
+[32m+[m[32m.Python[m
+[32m+[m[32mbuild/[m
+[32m+[m[32mdist/[m
+[32m+[m[32m*.egg-info/[m
+[32m+[m
+[32m+[m[32m# 数据文件（太大不要提交）[m
+[32m+[m[32m/data/[m
+[32m+[m[32m*.h5[m
+[32m+[m[32m*.pt[m
+[32m+[m[32m*.pth[m
+[32m+[m[32m*.npy[m
+[32m+[m
+[32m+[m[32m# 日志[m
+[32m+[m[32mlogs/[m
+[32m+[m[32m*.log[m
+[32m+[m
+[32m+[m[32m# IDE[m
+[32m+[m[32m.idea/[m
+[32m+[m
+[32m+[m[32m# 虚拟环境（绝对不要提交！）[m
+[32m+[m[32m/data/wgq/anaconda3/envs/rexomni/[m
+[1mdiff --git a/.vscode/launch.json b/.vscode/launch.json[m
+[1mnew file mode 100644[m
+[1mindex 0000000..ddac970[m
+[1m--- /dev/null[m
+[1m+++ b/.vscode/launch.json[m
+[36m@@ -0,0 +1,16 @@[m
+[32m+[m[32m{[m
+[32m+[m[32m    "version": "0.2.0",[m
+[32m+[m[32m    "configurations": [[m
+[32m+[m[32m        {[m
+[32m+[m[32m            "name": "REX-OMNI debug",[m
+[32m+[m[32m            "type": "debugpy",[m
+[32m+[m[32m            "request": "launch",[m
+[32m+[m[32m            "program": "/data/lz/pythonProjects/REXOMNI-125/Rex-Omni/tutorials/detection_example/detection_example.py",[m
+[32m+[m[32m            "console": "integratedTerminal",[m
+[32m+[m[32m            "justMyCode": false,[m
+[32m+[m[32m            "env": {[m
+[32m+[m[32m                "CUDA_VISIBLE_DEVICES": "3"[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m[32m    ][m
+[32m+[m[32m}[m
+\ No newline at end of file[m
+[1mdiff --git a/Rex-Omni/.vscode/.settings.json b/Rex-Omni/.vscode/.settings.json[m
+[1mnew file mode 100644[m
+[1mindex 0000000..44a116e[m
+[1m--- /dev/null[m
+[1m+++ b/Rex-Omni/.vscode/.settings.json[m
+[36m@@ -0,0 +1,3 @@[m
+[32m+[m[32m{[m
+[32m+[m[32m    "python.pythonPath": "/data/wgq/anaconda3/envs/rexomni/bin/python"[m
+[32m+[m[32m}[m
+[1mdiff --git a/Rex-Omni/.vscode/launch.json b/Rex-Omni/.vscode/launch.json[m
+[1mnew file mode 100644[m
+[1mindex 0000000..b4ada91[m
+[1m--- /dev/null[m
+[1m+++ b/Rex-Omni/.vscode/launch.json[m
+[36m@@ -0,0 +1,15 @@[m
+[32m+[m[32m{[m
+[32m+[m[32m    "version": "0.2.0",[m
+[32m+[m[32m    "configurations": [[m
+[32m+[m[32m        {[m
+[32m+[m[32m            "name": "Python: Detection Example",[m
+[32m+[m[32m            "type": "debugpy",[m
+[32m+[m[32m            "request": "launch",[m
+[32m+[m[32m            "program": "/data/lz/pythonProjects/REXOMNI-125/Rex-Omni/tutorials/detection_example/detection_example.py",[m
+[32m+[m[32m            "console": "integratedTerminal",[m
+[32m+[m[32m            "env": {[m
+[32m+[m[32m                "CUDA_VISIBLE_DEVICES": "1"[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m[32m    ][m
+[32m+[m[32m}[m
+\ No newline at end of file[m
+[1mdiff --git a/Rex-Omni/LICENSE b/Rex-Omni/LICENSE[m
+[1mnew file mode 100644[m
+[1mindex 0000000..587ff4e[m
+[1m--- /dev/null[m
+[1m+++ b/Rex-Omni/LICENSE[m
+[36m@@ -0,0 +1,51 @@[m
+[32m+[m[32mIDEA License 1.0[m
+[32m+[m
+[32m+[m[32mThis License Agreement (as may be amended in accordance with this License Agreement, “License”), between you, or your employer or other entity (if you are entering into this agreement on behalf of your employer or other entity) (“Licensee” or “you”) and the International Digital Economy Academy (“IDEA” or “we”) applies to your use of any computer program, algorithm, source code, object code, or software that is made available by IDEA under this License (“Software”) and any specifications, manuals, documentation, and other written information provided by IDEA related to the Software (“Documentation”).[m[41m [m
+[32m+[m
+[32m+[m[32mBy downloading the Software or by using the Software, you agree to the terms of this License. If you do not agree to this License, then you do not have any rights to use the Software or Documentation (collectively, the “Software Products”), and you must immediately cease using the Software Products. If you are agreeing to be bound by the terms of this License on behalf of your employer or other entity, you represent and warrant to IDEA that you have full legal authority to bind your employer or such entity to this License. If you do not have the requisite authority, you may not accept the License or access the Software Products on behalf of your employer or other entity.[m
+[32m+[m
+[32m+[m[32m1. LICENSE GRANT[m
+[32m+[m
+[32m+[m[32ma. You are granted a non-exclusive, worldwide, transferable, sublicensable, irrevocable, royalty free and limited license under IDEA’s copyright interests to use, reproduce, distribute, copy, create derivative works of, and make modifications to the Software solely for your non-commercial research purposes.[m[41m [m
+[32m+[m
+[32m+[m[32mb. The grant of rights expressly set forth in this Section 1 (License Grant) are the complete grant of rights to you in the Software Products, and no other licenses are granted, whether by waiver, estoppel, implication, equity or otherwise. IDEA and its licensors reserve all rights not expressly granted by this License.[m
+[32m+[m
+[32m+[m[32mc. If you intend to use the Software Products for any commercial purposes, you must request a license from IDEA, which IDEA may grant to you in its sole discretion.[m
+[32m+[m
+[32m+[m[32m2. REDISTRIBUTION AND USE[m[41m [m
+[32m+[m
+[32m+[m[32ma. If you distribute or make the Software Products, or any derivative works thereof, available to a third party, you shall provide a copy of this Agreement to such third party.[m[41m [m
+[32m+[m
+[32m+[m[32mb. You must retain in all copies of the Software Products that you distribute the following attribution notice: "T  is licensed under the IDEA License 1.0, Copyright (c) IDEA. All Rights Reserved."[m
+[32m+[m
+[32m+[m[32md. Your use of the Software Products must comply with applicable laws and regulations (including trade compliance laws and regulations).[m
+[32m+[m
+[32m+[m[32me. You will not, and will not permit, assist or cause any third party to use, modify, copy, reproduce, create derivative works of, or distribute the Software Products (or any derivative works thereof, works incorporating the Software Products, or any data produced by the Software), in whole or in part, for in any manner that infringes, misappropriates, or otherwise violates any third-party rights.[m
+[32m+[m
+[32m+[m[32m3. DISCLAIMER OF WARRANTY[m
+[32m+[m
+[32m+[m[32mUNLESS REQUIRED BY APPLICABLE LAW, THE SOFTWARE PRODUCTS AND ANY OUTPUT AND RESULTS THEREFROM ARE PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING, WITHOUT LIMITATION, ANY WARRANTIES OF TITLE, NON-INFRINGEMENT, MERCHANTABILITY, OR FITNESS FOR A PARTICULAR PURPOSE. YOU ARE SOLELY RESPONSIBLE FOR DETERMINING THE APPROPRIATENESS OF USING OR REDISTRIBUTING THE SOFTWARE PRODUCTS AND ASSUME ANY RISKS ASSOCIATED WITH YOUR USE OF THE SOFTWARE PRODUCTS AND ANY OUTPUT AND RESULTS.[m
+[32m+[m
+[32m+[m[32m4. LIMITATION OF LIABILITY[m
+[32m+[m
+[32m+[m[32mIN NO EVENT WILL IDEA OR ITS AFFILIATES BE LIABLE UNDER ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, TORT, NEGLIGENCE, PRODUCTS LIABILITY, OR OTHERWISE, ARISING OUT OF THIS AGREEMENT, FOR ANY LOST PROFITS OR ANY INDIRECT, SPECIAL, CONSEQUENTIAL, INCIDENTAL, EXEMPLARY OR PUNITIVE DAMAGES, EVEN IF IDEA OR ITS AFFILIATES HAVE BEEN ADVISED OF THE POSSIBILITY OF ANY OF THE FOREGOING.[m
+[32m+[m
+[32m+[m[32m5. INDEMNIFICATION[m
+[32m+[m
+[32m+[m[32mYou will indemnify, defend and hold harmless IDEA and our subsidiaries and affiliates, and each of our respective shareholders, directors, officers, employees, agents, successors, and assigns (collectively, the “IDEA Parties”) from and against any losses, liabilities, damages, fines, penalties, and expenses (including reasonable attorneys’ fees) incurred by any IDEA Party in connection with any claim, demand, allegation, lawsuit, proceeding, or investigation (collectively, “Claims”) arising out of or related to: (a) your access to or use of the Software Products (as well as any results or data generated from such access or use); (b) your violation of this License; or (c) your violation, misappropriation or infringement of any rights of another (including intellectual property or other proprietary rights and privacy rights). You will promptly notify the IDEA Parties of any such Claims, and cooperate with IDEA Parties in defending such Claims. You will also grant the IDEA Parties sole control of the defense or settlement, at IDEA’s sole option, of any Claims. This indemnity is in addition to, and not in lieu of, any other indemnities or remedies set forth in a written agreement between you and IDEA or the other IDEA Parties.[m
+[32m+[m
+[32m+[m[32m6. TERMINATION; SURVIVAL[m
+[32m+[m
+[32m+[m[32ma. This License will automatically terminate upon any breach by you of the terms of this License.[m
+[32m+[m
+[32m+[m[32mb. If you institute litigation or other proceedings against IDEA or any entity (including a cross-claim or counterclaim in a lawsuit) alleging that the Software Products, or any portion of any of the foregoing, constitutes infringement of intellectual property or other rights owned or licensable by you, then any licenses granted to you under this Agreement shall terminate as of the date such litigation or claim is filed or instituted.[m
+[32m+[m
+[32m+[m[32mc. The following sections survive termination of this License: 2 (Redistribution and use), 3 (Disclaimers of Warranty), 4 (Limitation of Liability), 5 (Indemnification), 6 (Termination; Survival), 7 (Trademarks) and 8 (Applicable Law; Dispute Resolution).[m[41m [m
+[32m+[m
+[32m+[m[32m7. TRADEMARKS[m
+[32m+[m
+[32m+[m[32mLicensee has not been granted any trademark license as part of this License and may not use any name or mark associated with IDEA without the prior written permission of IDEA, except to the extent necessary to make the reference required by the attribution notice of this Agreement.[m
+[32m+[m
+[32m+[m[32m8. APPLICABLE LAW; DISPUTE RESOLUTION[m
+[32m+[m
+[32m+[m[32mThis License will be governed and construed under the laws of the People’s Republic of China without regard to conflicts of law provisions. The parties expressly agree that the United Nations Convention on Contracts for the International Sale of Goods will not apply. Any suit or proceeding arising out of or relating to this License will be brought in the courts, as applicable, in Shenzhen, Guangdong, and each party irrevocably submits to the jurisdiction and venue of such courts.[m
+\ No newline at end of file[m
+[1mdiff --git a/Rex-Omni/README.md b/Rex-Omni/README.md[m
+[1mnew file mode 100644[m
+[1mindex 0000000..a85a37c[m
+[1m--- /dev/null[m
+[1m+++ b/Rex-Omni/README.md[m
+[36m@@ -0,0 +1,279 @@[m
+[32m+[m
+[32m+[m[32m<div align=center>[m
+[32m+[m[32m  <img src="assets/logo.png" width=600 >[m
+[32m+[m[32m</div>[m
+[32m+[m
+[32m+[m[32m<h1 align="center">Detect Anything via Next Point Prediction</h1>[m
+[32m+[m
+[32m+[m[32m<div align=center>[m
+[32m+[m
+[32m+[m[32m<p align="center">[m
+[32m+[m[32m  <a href="https://rex-omni.github.io/">[m
+[32m+[m[32m    <img[m
+[32m+[m[32m      src="https://img.shields.io/badge/RexOmni-Website-BADFDB?style=flat-square&logo=deno&logoColor=violet&color=BADFDB"[m
+[32m+[m[32m      alt="RexThinker Website"[m
+[32m+[m[32m    />[m
+[32m+[m[32m  </a>[m
+[32m+[m[32m  <a href="https://arxiv.org/abs/2510.12798">[m
+[32m+[m[32m    <img[m
+[32m+[m[32m      src="https://img.shields.io/badge/RexOmni-Paper-Red%25red?logo=arxiv&logoColor=red&color=yellow"[m
+[32m+[m[32m      alt="RexThinker Paper on arXiv"[m
+[32m+[m[32m    />[m
+[32m+[m[32m  </a>[m
+[32m+[m[32m  <a href="https://huggingface.co/IDEA-Research/Rex-Omni-AWQ">[m
+[32m+[m[32m    <img[m[41m [m
+[32m+[m[32m        src="https://img.shields.io/badge/RexOmni_AWQ-Weight-orange?logo=huggingface&logoColor=yellow"[m[41m [m
+[32m+[m[32m        alt="RexThinker weight on Hugging Face"[m
+[32m+[m[32m    />[m
+[32m+[m[32m  </a>[m
+[32m+[m[32m  <a href="https://huggingface.co/IDEA-Research/Rex-Omni">[m
+[32m+[m[32m    <img[m[41m [m
+[32m+[m[32m        src="https://img.shields.io/badge/RexOmni-Weight-orange?logo=huggingface&logoColor=yellow"[m[41m [m
+[32m+[m[32m        alt="RexThinker weight on Hugging Face"[m
+[32m+[m[32m    />[m
+[32m+[m[32m  </a>[m
+[32m+[m[32m  <a href="https://huggingface.co/spaces/Mountchicken/Rex-Omni">[m
+[32m+[m[32m    <img[m
+[32m+[m[32m      src="https://img.shields.io/badge/RexOmni-Demo-orange?logo=huggingface&logoColor=yellow"[m[41m [m
+[32m+[m[32m      alt="RexThinker Demo on Hugging Face"[m
+[32m+[m[32m    />[m
+[32m+[m[32m  </a>[m
+[32m+[m[41m  [m
+[32m+[m[32m</p>[m
+[32m+[m
+[32m+[m[32m</div>[m
+[32m+[m
+[32m+[m[32m> Rex-Omni is a 3B-parameter Multimodal Large Language Model (MLLM) that redefines object detection and a wide range of other visual perception tasks as a simple next-token prediction problem.[m
+[32m+[m
+[32m+[m[32m<p align="center"><img src="assets/teaser.png" width="95%"></p>[m
+[32m+[m
+[32m+[m
+[32m+[m[32m# News 🎉[m
+[32m+[m[32m- [2025-10-31] We release the AWQ quantized version of Rex-Omni, which saves 50% of the storage space. [Rex-Omni-AWQ](https://huggingface.co/IDEA-Research/Rex-Omni-AWQ)[m
+[32m+[m[32m- [2025-10-29] Fine-tuning code is now [available](finetuning/README.md).[m
+[32m+[m[32m- [2025-10-17] Evaluation code and dataset is now [available](evaluation/README.md).[m
+[32m+[m[32m- [2025-10-15] Rex-Omni is released.[m
+[32m+[m
+[32m+[m[32m# Table of Contents[m
+[32m+[m
+[32m+[m[32m- [News 🎉](#news-)[m
+[32m+[m[32m- [Table of Contents](#table-of-contents)[m
+[32m+[m[32m  - [TODO LIST 📝](#todo-list-)[m
+[32m+[m[32m  - [1. Installation ⛳️](#1-installation-️)[m
+[32m+[m[32m  - [2. Quick Start: Using Rex-Omni for Detection](#2-quick-start-using-rex-omni-for-detection)[m
+[32m+[m[32m      - [Initialization parameters (RexOmniWrapper)](#initialization-parameters-rexomniwrapper)[m
+[32m+[m[32m      - [Inference parameters (rex.inference)](#inference-parameters-rexinference)[m
+[32m+[m[32m  - [3. Cookbooks](#3-cookbooks)[m
+[32m+[m[32m  - [4. Applications of Rex-Omni](#4-applications-of-rex-omni)[m
+[32m+[m[32m  - [5. Gradio Demo](#5-gradio-demo)[m
+[32m+[m[32m    - [Quick Start](#quick-start)[m
+[32m+[m[32m    - [Available Options](#available-options)[m
+[32m+[m[32m  - [6. Evaluation](#6-evaluation)[m
+[32m+[m[32m  - [7. Fine-tuning Rex-Omni](#7-fine-tuning-rex-omni)[m
+[32m+[m[32m  - [8. LICENSE](#8-license)[m
+[32m+[m[32m  - [9. Citation](#9-citation)[m
+[32m+[m
+[32m+[m
+[32m+[m[32m## TODO LIST 📝[m
+[32m+[m[32m- [x] Add Evaluation Code[m
+[32m+[m[32m- [x] Add Fine-tuning Code[m
+[32m+[m[32m- [x] Add Quantilized Rex-Omni[m
+[32m+[m
+[32m+[m[32m## 1. Installation ⛳️[m
+[32m+[m
+[32m+[m[32m```bash[m
+[32m+[m[32mgit clone https://github.com/IDEA-Research/Rex-Omni.git[m
+[32m+[m[32mcd Rex-Omni[m
+[32m+[m[32mconda create -n rexomni python=3.10 -y[m
+[32m+[m[32mconda activate rexomni[m
+[32m+[m[32mpip install torch==2.7.0 torchvision --index-url https://download.pytorch.org/whl/cu128[m
+[32m+[m[32mpip install -r requirements.txt[m
+[32m+[m[32m```[m
+[32m+[m
+[32m+[m[32mTest Installation[m
+[32m+[m[32m```bash[m
+[32m+[m[32mCUDA_VISIBLE_DEVICES=1 python tutorials/detection_example/detection_example.py[m
+[32m+[m[32m```[m
+[32m+[m
+[32m+[m[32mIf the installation is successful, you will find a visualization of the detection results at `tutorials/detection_example/test_images/cafe_visualize.jpg`[m
+[32m+[m
+[32m+[m[32m## 2. Quick Start: Using Rex-Omni for Detection[m
+[32m+[m[32mBelow is a minimal example showing how to run object detection using the `rex_omni` package.[m
+[32m+[m
+[32m+[m[32m```python[m
+[32m+[m[32mfrom PIL import Image[m
+[32m+[m[32mfrom rex_omni import RexOmniWrapper, RexOmniVisualize[m
+[32m+[m
+[32m+[m[32m# 1) Initialize the wrapper (model loads internally)[m
+[32m+[m[32mrex = RexOmniWrapper([m
+[32m+[m[32m    model_path="IDEA-Research/Rex-Omni",   # HF repo or local path[m
+[32m+[m[32m    backend="transformers",                # or "vllm" for high-throughput inference[m
+[32m+[m[32m    # Inference/generation controls (applied across backends)[m
+[32m+[m[32m    max_tokens=2048,[m
+[32m+[m[32m    temperature=0.0,[m
+[32m+[m[32m    top_p=0.05,[m
+[32m+[m[32m    top_k=1,[m
+[32m+[m[32m    repetition_penalty=1.05,[m
+[32m+[m[32m)[m
+[32m+[m
+[32m+[m[32m# If you are using the AWQ quantized version of Rex-Omni, you can use the following code:[m
+[32m+[m[32mrex = RexOmniWrapper([m
+[32m+[m[32m    model_path="IDEA-Research/Rex-Omni-AWQ",[m
+[32m+[m[32m    backend="vllm",[m
+[32m+[m[32m    quantization="awq",[m
+[32m+[m[32m    max_tokens=2048,[m
+[32m+[m[32m    temperature=0.0,[m
+[32m+[m[32m    top_p=0.05,[m
+[32m+[m[32m    top_k=1,[m
+[32m+[m[32m    repetition_penalty=1.05,[m
+[32m+[m[32m)[m
+[32m+[m
+[32m+[m[32m# 2) Prepare input[m
+[32m+[m[32mimage = Image.open("tutorials/detection_example/test_images/cafe.jpg").convert("RGB")[m
+[32m+[m[32mcategories = [[m
+[32m+[m[32m    "man", "woman", "yellow flower", "sofa", "robot-shope light",[m
+[32m+[m[32m    "blanket", "microwave", "laptop", "cup", "white chair", "lamp",[m
+[32m+[m[32m][m
+[32m+[m
+[32m+[m[32m# 3) Run detection[m
+[32m+[m[32mresults = rex.inference(images=image, task="detection", categories=categories)[m
+[32m+[m[32mresult = results[0][m
+[32m+[m
+[32m+[m[32m# 4) Visualize[m
+[32m+[m[32mvis = RexOmniVisualize([m
+[32m+[m[32m    image=image,[m
+[32m+[m[32m    predictions=result["extracted_predictions"],[m
+[32m+[m[32m    font_size=20,[m
+[32m+[m[32m    draw_width=5,[m
+[32m+[m[32m    show_labels=True,[m
+[32m+[m[32m)[m
+[32m+[m[32mvis.save("tutorials/detection_example/test_images/cafe_visualize.jpg")[m
+[32m+[m[32m```[m
+[32m+[m
+[32m+[m[32m#### Initialization parameters (RexOmniWrapper)[m
+[32m+[m[32m- **model_path**: Hugging Face repo ID or a local checkpoint directory for the Rexe-Omni model.[m
+[32m+[m[32m- **backend**: "transformers" or "vllm".[m
+[32m+[m[32m  - **transformers**: easy to use, good baseline latency.[m
+[32m+[m[32m  - **vllm**: high-throughput, low-latency inference. Requires the `vllm` package and a compatible environment.[m
+[32m+[m[32m- **max_tokens**: Maximum number of tokens to generate for each output.[m
+[32m+[m[32m- **temperature**: Sampling temperature; higher values increase randomness (0.0 = deterministic/greedy).[m
+[32m+[m[32m- **top_p**: Nucleus sampling parameter; model samples from the smallest set of tokens with cumulative probability ≥ top_p.[m
+[32m+[m[32m- **top_k**: Top-k sampling; restricts sampling to the k most likely tokens.[m
+[32m+[m[32m- **repetition_penalty**: Penalizes repeated tokens; >1.0 discourages repetition.[m
+[32m+[m[32m- Optional advanced settings (supported via kwargs when constructing the wrapper):[m
+[32m+[m[32m  - Transformers: `torch_dtype`, `attn_implementation`, `device_map`, `trust_remote_code`, etc.[m
+[32m+[m[32m  - VLLM: `tokenizer_mode`, `limit_mm_per_prompt`, `max_model_len`, `gpu_memory_utilization`, `tensor_parallel_size`, `trust_remote_code`, etc.[m
+[32m+[m
+[32m+[m[32m#### Inference parameters (rex.inference)[m
+[32m+[m[32m- **images**: A single `PIL.Image.Image` or a list of images for batch inference.[m
+[32m+[m[32m- **task**: One of `"detection"`, `"pointing"`, `"visual_prompting"`, `"keypoint"`, `"ocr_box"`, `"ocr_polygon"`, `"gui_grounding"`, `"gui_pointing"`.[m
+[32m+[m[32m- **categories**: List of category names/phrases to detect or extract, e.g., `["person", "cup"]`. Used to build task prompts.[m
+[32m+[m[32m- **keypoint_type": Type of keypoints for keypoint detection task. Options: "person", "hand", "animal"[m
+[32m+[m[32m- **visual_prompt_boxes**: Reference bounding boxes for visual prompting task. Format: [[x0, y0, x1, y1], ...] in absolute coordinates[m
+[32m+[m
+[32m+[m[32mReturns a list of dictionaries (one per input image). Each dictionary includes:[m
+[32m+[m[32m- **raw_output**: The raw text generated by the LLM.[m
+[32m+[m[32m- **extracted_predictions**: Structured predictions parsed from the raw output, grouped by category.[m
+[32m+[m[32m  - For detection: `{category: [{"type": "box", "coords": [x0,y0,x1,y1]}, ...], ...}`[m
+[32m+[m[32m  - For pointing:  `{category: [{"type": "point", "coords": [x0,y0]}, ...], ...}`[m
+[32m+[m[32m  - For polygon: `{category: [{"type": "polygon", "coords": [x0,y0, ...]}, ...], ...}`[m
+[32m+[m[32m  - For keypointing: Structured Json[m
+[32m+[m
+[32m+[m[32mTips:[m
+[32m+[m[32m- For best performance with VLLM, set `backend="vllm"` and tune `gpu_memory_utilization` and `tensor_parallel_size` according to your GPUs.[m
+[32m+[m
+[32m+[m[32m## 3. Cookbooks[m
+[32m+[m
+[32m+[m[32mWe provide comprehensive tutorials for each supported task. Each tutorial includes both standalone Python scripts and interactive Jupyter notebooks.[m
+[32m+[m
+[32m+[m[32m|       Task       |                                                                Applications                                                               |   Demo |                  Python Example                    |                     Notebook                     |[m
+[32m+[m[32m|:----------------:|:-----------------------------------------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------:|:------------------------------------------------:|:------------------------------------------------:|[m
+[32m+[m[32m| Detection |                               `object detection`                                 | <img src="assets/cafe_visualize.jpg" width="240"/>  | [code](tutorials/detection_example/detection_example.py)   | [notebook](tutorials/detection_example/_full_notebook.ipynb) |[m
+[32m+[m[32m|                  |                         `object referring`                      | <img src="assets/boys_visualize.jpg" width="240"/>   | [code](tutorials/detection_example/referring_example.py)      |       [notebook](tutorials/detection_example/_full_notebook.ipynb)                                           |[m
+[32m+[m[32m|                  | `gui grounding` | <img src="assets/gui_visualize.jpg" width="240"/> | [code](tutorials/detection_example/gui_grounding_example.py)  |       [notebook](tutorials/detection_example/_full_notebook.ipynb)                                           |[m
+[32m+[m[32m|                  |                    `layout grounding`    |  <img src="assets/layout_visualize.jpg" width="240"/>        | [code](tutorials/detection_example/layout_grouding_examle.py) |       [notebook](tutorials/detection_example/_full_notebook.ipynb)                                             |[m
+[32m+[m[32m| Pointing |                               `object pointing`            |       <img src="assets/object_pointing_visualize.jpg" width="240"/>           |   [code](tutorials/pointing_example/object_pointing_example.py)   | [notebook](tutorials/pointing_example/_full_notebook.ipynb) |[m
+[32m+[m[32m|                  |                         `gui pointing`    |      <img src="assets/gui_pointing_visualize.jpg" width="240"/>              | [code](tutorials/pointing_example/gui_pointing_example.py)      |       [notebook](tutorials/pointing_example/_full_notebook.ipynb)                                           |[m
+[32m+[m[32m|                  | `affordance pointing` | <img src="assets/affordance_pointing_visualize.jpg" width="240"/> | [code](tutorials/pointing_example/affordance_pointing_example.py)  |       [notebook](tutorials/pointing_example/_full_notebook.ipynb)                                           |[m
+[32m+[m[32m| Visual prompting | `visual prompting` | <img src="assets/pigeons_visualize.jpg" width="240"/> | [code](tutorials/visual_prompting_example/visual_prompt_example.py) | [notebook](tutorials/visual_prompting_example/_full_tutorial.ipynb) |[m
+[32m+[m[32m| OCR | `ocr word box` | <img src="assets/ocr_word_box_visualize.jpg" width="240"/> | [code](tutorials/ocr_example/ocr_word_box_example.py) | [notebook](tutorials/ocr_example/_full_tutorial.ipynb) |[m
+[32m+[m[32m|                  | `ocr textline box` | <img src="assets/ocr_textline_box_visualize.jpg" width="240"/> | [code](tutorials/ocr_example/ocr_textline_box_example.py) |       [notebook](tutorials/ocr_example/_full_tutorial.ipynb)                                           |[m
+[32m+[m[32m|                  | `ocr polygon` | <img src="assets/ocr_polygon_visualize.jpg" width="240"/> | [code](tutorials/ocr_example/ocr_polygon_example.py) |       [notebook](tutorials/ocr_example/_full_tutorial.ipynb)                                           |[m
+[32m+[m[32m| Keypointing | `person keypointing` | <img src="assets/person_keypointing_visualize.jpg" width="240"/> | [code](tutorials/keypointing_example/person_keypointing_example.py) | [notebook](tutorials/keypointing_example/_full_tutorial.ipynb)|[m
+[32m+[m[32m|             | `animal keypointing`   |     <img src="assets/animal_keypointing_visualize.jpg" width="240"/>                     |  [code](tutorials/keypointing_example/animal_keypointing_example.py)                                                |       [notebook](tutorials/keypointing_example/_full_tutorial.ipynb)                                           |[m
+[32m+[m[32m| Other | `batch inference` |  | [code](tutorials/other_example/batch_inference.py) ||[m
+[32m+[m
+[32m+[m[32m## 4. Applications of Rex-Omni[m
+[32m+[m
+[32m+[m[32mRex-Omni's unified detection framework enables seamless integration with other vision models.[m
+[32m+[m
+[32m+[m[32m| Application | Description | Demo | Documentation |[m
+[32m+[m[32m|:------------|:------------|:----:|:-------------:|[m
+[32m+[m[32m| **Rex-Omni + SAM** | Combine language-driven detection with pixel-perfect segmentation. Rex-Omni detects objects → SAM generates precise masks | <img src="assets/rexomni_sam.jpg" width="500"/> | [README](applications/_1_rexomni_sam/README.md) |[m
+[32m+[m[32m| **Grounding Data Engine** | Automatically generate phrase grounding annotations from image captions using spaCy and Rex-Omni. | <img src="assets/cafe_grounding.jpg" width="500"/> | [README](applications/_2_automatic_grounding_data_engine/README.md) |[m
+[32m+[m
+[32m+[m
+[32m+[m[32m## 5. Gradio Demo[m
+[32m+[m
+[32m+[m[32m![img](assets/gradio.png)[m
+[32m+[m
+[32m+[m[32mWe provide an interactive Gradio demo that allows you to test all Rex-Omni capabilities through a web interface.[m
+[32m+[m
+[32m+[m[32m### Quick Start[m
+[32m+[m[32m```bash[m
+[32m+[m[32m# Launch the demo[m
+[32m+[m[32mCUDA_VISIBLE_DEVICES=0 python app.py --model_path IDEA-Research/Rex-Omni[m
+[32m+[m
+[32m+[m[32m# With custom settings[m
+[32m+[m[32mCUDA_VISIBLE_DEVICES=0 python app.py \[m
+[32m+[m[32m    --model_path IDEA-Research/Rex-Omni \[m
+[32m+[m[32m    --backend vllm \[m
+[32m+[m[32m    --server_name 0.0.0.0 \[m
+[32m+[m[32m    --server_port 7890[m
+[32m+[m[32m```[m
+[32m+[m
+[32m+[m[32m### Available Options[m
+[32m+[m[32m- `--model_path`: Model path or HuggingFace repo ID (default: "IDEA-Research/Rex-Omni")[m
+[32m+[m[32m- `--backend`: Backend to use - "transformers" or "vllm" (default: "transformers")[m
+[32m+[m[32m- `--server_name`: Server host address (default: "192.168.81.138")[m
+[32m+[m[32m- `--server_port`: Server port (default: 5211)[m
+[32m+[m[32m- `--temperature`: Sampling temperature (default: 0.0)[m
+[32m+[m[32m- `--top_p`: Nucleus sampling parameter (default: 0.05)[m
+[32m+[m[32m- `--max_tokens`: Maximum tokens to generate (default: 2048)[m
+[32m+[m
+[32m+[m[32m## 6. Evaluation[m
+[32m+[m[32mPlease refer to [Evaluation](evaluation/README.md) for more details.[m
+[32m+[m
+[32m+[m[32m## 7. Fine-tuning Rex-Omni[m
+[32m+[m[32mPlease refer to [Fine-tuning Rex-Omni](finetuning/README.md) for more details.[m
+[32m+[m
+[32m+[m[32m## 8. LICENSE[m
+[32m+[m
+[32m+[m[32mRex-Omni is licensed under the [IDEA License 1.0](LICENSE), Copyright (c) IDEA. All Rights Reserved. This model is based on Qwen, which is licensed under the [Qwen RESEARCH LICENSE AGREEMENT](https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct/blob/main/LICENSE), Copyright (c) Alibaba Cloud. All Rights Reserved.[m
+[32m+[m
+[32m+[m
+[32m+[m[32m## 9. Citation[m
+[32m+[m[32mRex-Omni comes from a series of prior works. If you’re interested, you can take a look.[m
+[32m+[m
+[32m+[m[32m- [RexThinker](https://arxiv.org/abs/2506.04034)[m
+[32m+[m[32m- [RexSeek](https://arxiv.org/abs/2503.08507)[m
+[32m+[m[32m- [ChatRex](https://arxiv.org/abs/2411.18363)[m
+[32m+[m[32m- [DINO-X](https://arxiv.org/abs/2411.14347)[m
+[32m+[m[32m- [Grounidng DINO 1.5](https://arxiv.org/abs/2405.10300)[m
+[32m+[m[32m- [T-Rex2](https://link.springer.com/chapter/10.1007/978-3-031-73414-4_3)[m
+[32m+[m[32m- [T-Rex](https://arxiv.org/abs/2311.13596)[m
+[32m+[m
+[32m+[m
+[32m+[m[32m```text[m
+[32m+[m[32m@misc{jiang2025detectpointprediction,[m
+[32m+[m[32m      title={Detect Anything via Next Point Prediction},[m[41m [m
+[32m+[m[32m      author={Qing Jiang and Junan Huo and Xingyu Chen and Yuda Xiong and Zhaoyang Zeng and Yihao Chen and Tianhe Ren and Junzhi Yu and Lei Zhang},[m
+[32m+[m[32m      year={2025},[m
+[32m+[m[32m      eprint={2510.12798},[m
+[32m+[m[32m      archivePrefix={arXiv},[m
+[32m+[m[32m      primaryClass={cs.CV},[m
+[32m+[m[32m      url={https://arxiv.org/abs/2510.12798},[m[41m [m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m
+[32m+[m[32m```[m
+\ No newline at end of file[m
+[1mdiff --git a/Rex-Omni/SORT/__init__.py b/Rex-Omni/SORT/__init__.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..13633b4[m
+[1m--- /dev/null[m
+[1m+++ b/Rex-Omni/SORT/__init__.py[m
+[36m@@ -0,0 +1,93 @@[m
+[32m+[m[32m# SORT/__init__.py[m
+[32m+[m[32m"""[m
+[32m+[m[32mSORT (Simple, Online and Realtime Tracker) 模块[m
+[32m+[m
+[32m+[m[32m这是一个简单、在线且实时的多目标跟踪实现。[m
+[32m+[m
+[32m+[m[32m核心功能:[m
+[32m+[m[32m- Sort: 主跟踪器类，用于多目标跟踪[m
+[32m+[m[32m- KalmanBoxTracker: 单个目标的卡尔曼滤波跟踪器[m
+[32m+[m
+[32m+[m[32m辅助功能:[m
+[32m+[m[32m- iou_batch: 计算批次IoU[m
+[32m+[m[32m- linear_assignment: 解决分配问题[m
+[32m+[m[32m- convert_dets_for_sort: 将检测结果转换为SORT格式 (如果依赖可用)[m
+[32m+[m
+[32m+[m[32m基本用法:[m
+[32m+[m[32m    >>> from SORT import Sort[m
+[32m+[m[32m    >>> tracker = Sort(max_age=30, min_hits=3, iou_threshold=0.3)[m
+[32m+[m[32m    >>> detections = np.array([[100, 50, 200, 150, 0.9], [300, 200, 400, 300, 0.85]])[m
+[32m+[m[32m    >>> tracked_objects = tracker.update(detections)[m
+[32m+[m[32m"""[m
+[32m+[m
+[32m+[m[32mfrom .sort import ([m
+[32m+[m[32m    Sort,[m
+[32m+[m[32m    TrackingVisualizer,[m
+[32m+[m[32m    KalmanBoxTracker,[m
+[32m+[m[32m    linear_assignment,[m
+[32m+[m[32m    iou_batch,[m
+[32m+[m[32m    convert_bbox_to_z,[m
+[32m+[m[32m    convert_x_to_bbox,[m
+[32m+[m[32m    associate_detections_to_trackers[m
+[32m+[m[32m)[m
+[32m+[m
+[32m+[m[32m# 尝试导入辅助函数，但如果依赖缺失则静默失败[m
+[32m+[m[32mtry:[m
+[32m+[m[32m    from .testTrackingSort import ([m
+[32m+[m[32m        pre_process,[m
+[32m+[m[32m        convert_dets_for_sort,[m
+[32m+[m[32m        test[m
+[32m+[m[32m    )[m
+[32m+[m[32m    _TEST_AVAILABLE = True[m
+[32m+[m[32mexcept ImportError:[m
+[32m+[m[32m    _TEST_AVAILABLE = False[m
+[32m+[m
+[32m+[m[32m__version__ = "1.0.0"[m
+[32m+[m
+[32m+[m[32m__all__ = [[m
+[32m+[m[32m    # 核心类[m
+[32m+[m[32m    'Sort',[m
+[32m+[m[32m    'KalmanBoxTracker',[m
+[32m+[m[32m    'TrackingVisualizer'[m
+[32m+[m[32m    # 核心工具函数[m
+[32m+[m[32m    'linear_assignment',[m
+[32m+[m[32m    'iou_batch',[m
+[32m+[m[32m    'convert_bbox_to_z',[m
+[32m+[m[32m    'convert_x_to_bbox',[m
+[32m+[m[32m    'associate_detections_to_trackers',[m
+[32m+[m[32m][m
+[32m+[m
+[32m+[m[32m# 如果辅助函数可用，添加到__all__[m
+[32m+[m[32mif _TEST_AVAILABLE:[m
+[32m+[m[32m    __all__.extend([[m
+[32m+[m[32m        'pre_process',[m
+[32m+[m[32m        'convert_dets_for_sort',[m
+[32m+[m[32m        'test'[m
+[32m+[m[32m    ])[m
+[32m+[m
+[32m+[m[32mdef create_trackers(num_classes, max_age=30, min_hits=3, iou_threshold=0.3):[m
+[32m+[m[32m    """[m
+[32m+[m[32m    为多个类别创建跟踪器字典[m
+[32m+[m[41m    [m
+[32m+[m[32m    Args:[m
+[32m+[m[32m        num_classes: 类别总数[m
+[32m+[m[32m        max_age: 最大跟踪帧数[m
+[32m+[m[32m        min_hits: 最小命中次数[m
+[32m+[m[32m        iou_threshold: IoU匹配阈值[m
+[32m+[m[41m        [m
+[32m+[m[32m    Returns:[m
+[32m+[m[32m        dict: {类别ID: Sort实例}[m
+[32m+[m[32m    """[m
+[32m+[m[32m    return {[m
+[32m+[m[32m        cls_id: Sort(max_age=max_age, min_hits=min_hits, iou_threshold=iou_threshold)[m
+[32m+[m[32m        for cls_id in range(1, num_classes + 1)[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m# 自检函数[m
+[32m+[m[32mdef check_installation():[m
+[32m+[m[32m    """检查SORT模块安装状态"""[m
+[32m+[m[32m    print(f"SORT模块版本: {__version__}")[m
+[32m+[m[32m    print(f"核心组件: {'✓' if 'Sort' in globals() else '✗'} Sort, {'✓' if 'KalmanBoxTracker' in globals() else '✗'} KalmanBoxTracker")[m
+[32m+[m[32m    print(f"辅助组件: {'✓' if _TEST_AVAILABLE else '✗'} testTrackingSort")[m
+[32m+[m[32m    if not _TEST_AVAILABLE:[m
+[32m+[m[32m        print("提示: 如需使用 testTrackingSort 的辅助函数，请确保相关依赖已安装 (torch, numpy, skimage等)")[m
+\ No newline at end of file[m
+[1mdiff --git a/Rex-Omni/SORT/sort.py b/Rex-Omni/SORT/sort.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..85e1dd2[m
+[1m--- /dev/null[m
+[1m+++ b/Rex-Omni/SORT/sort.py[m
+[36m@@ -0,0 +1,496 @@[m
+[32m+[m[32m"""[m
+[32m+[m[32m    SORT: A Simple, Online and Realtime Tracker[m
+[32m+[m[32m    Copyright (C) 2016-2020 Alex Bewley alex@bewley.ai[m
+[32m+[m
+[32m+[m[32m    This program is free software: you can redistribute it and/or modify[m
+[32m+[m[32m    it under the terms of the GNU General Public License as published by[m
+[32m+[m[32m    the Free Software Foundation, either version 3 of the License, or[m
+[32m+[m[32m    (at your option) any later version.[m
+[32m+[m
+[32m+[m[32m    This program is distributed in the hope that it will be useful,[m
+[32m+[m[32m    but WITHOUT ANY WARRANTY; without even the implied warranty of[m
+[32m+[m[32m    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the[m
+[32m+[m[32m    GNU General Public License for more details.[m
+[32m+[m
+[32m+[m[32m    You should have received a copy of the GNU General Public License[m
+[32m+[m[32m    along with this program.  If not, see <http://www.gnu.org/licenses/>.[m
+[32m+[m[32m"""[m
+[32m+[m[32mfrom __future__ import print_function[m
+[32m+[m
+[32m+[m[32mimport os[m
+[32m+[m[32mimport numpy as np[m
+[32m+[m[32mfrom skimage import io[m
+[32m+[m
+[32m+[m[32mimport glob[m
+[32m+[m[32mimport time[m
+[32m+[m[32mimport argparse[m
+[32m+[m[32mfrom filterpy.kalman import KalmanFilter[m
+[32m+[m
+[32m+[m[32mfrom PIL import Image, ImageDraw, ImageFont[m
+[32m+[m[32mimport random[m
+[32m+[m[32mfrom collections import defaultdict[m
+[32m+[m
+[32m+[m
+[32m+[m[32mnp.random.seed(0)[m
+[32m+[m
+[32m+[m
+[32m+[m[32mdef linear_assignment(cost_matrix):[m
+[32m+[m[32m  try:[m
+[32m+[m[32m    import lap[m
+[32m+[m[32m    _, x, y = lap.lapjv(cost_matrix, extend_cost=True)[m
+[32m+[m[32m    return np.array([[y[i],i] for i in x if i >= 0]) #[m
+[32m+[m[32m  except ImportError:[m
+[32m+[m[32m    from scipy.optimize import linear_sum_assignment[m
+[32m+[m[32m    x, y = linear_sum_assignment(cost_matrix)[m
+[32m+[m[32m    return np.array(list(zip(x, y)))[m
+[32m+[m
+[32m+[m
+[32m+[m[32mdef iou_batch(bb_test, bb_gt):[m
+[32m+[m[32m  """[m
+[32m+[m[32m  From SORT: Computes IOU between two bboxes in the form [x1,y1,x2,y2][m
+[32m+[m[32m  """[m
+[32m+[m[32m  bb_gt = np.expand_dims(bb_gt, 0)[m
+[32m+[m[32m  bb_test = np.expand_dims(bb_test, 1)[m
+[32m+[m[41m  [m
+[32m+[m[32m  xx1 = np.maximum(bb_test[..., 0], bb_gt[..., 0])[m
+[32m+[m[32m  yy1 = np.maximum(bb_test[..., 1], bb_gt[..., 1])[m
+[32m+[m[32m  xx2 = np.minimum(bb_test[..., 2], bb_gt[..., 2])[m
+[32m+[m[32m  yy2 = np.minimum(bb_test[..., 3], bb_gt[..., 3])[m
+[32m+[m[32m  w = np.maximum(0., xx2 - xx1)[m
+[32m+[m[32m  h = np.maximum(0., yy2 - yy1)[m
+[32m+[m[32m  wh = w * h[m
+[32m+[m[32m  o = wh / ((bb_test[..., 2] - bb_test[..., 0]) * (bb_test[..., 3] - bb_test[..., 1])[m[41m                                      [m
+[32m+[m[32m    + (bb_gt[..., 2] - bb_gt[..., 0]) * (bb_gt[..., 3] - bb_gt[..., 1]) - wh)[m[41m                                              [m
+[32m+[m[32m  return(o)[m[41m  [m
+[32m+[m
+[32m+[m
+[32m+[m[32mdef convert_bbox_to_z(bbox):[m
+[32m+[m[32m  """[m
+[32m+[m[32m  Takes a bounding box in the form [x1,y1,x2,y2] and returns z in the form[m
+[32m+[m[32m    [x,y,s,r] where x,y is the centre of the box and s is the scale/area and r is[m
+[32m+[m[32m    the aspect ratio[m
+[32m+[m[32m  """[m
+[32m+[m[32m  w = bbox[2] - bbox[0][m
+[32m+[m[32m  h = bbox[3] - bbox[1][m
+[32m+[m[32m  x = bbox[0] + w/2.[m
+[32m+[m[32m  y = bbox[1] + h/2.[m
+[32m+[m[32m  s = w * h    #scale is just area[m
+[32m+[m[32m  r = w / float(h)[m
+[32m+[m[32m  return np.array([x, y, s, r]).reshape((4, 1))[m
+[32m+[m
+[32m+[m
+[32m+[m[32mdef convert_x_to_bbox(x,score=None):[m
+[32m+[m[32m  """[m
+[32m+[m[32m  Takes a bounding box in the centre form [x,y,s,r] and returns it in the form[m
+[32m+[m[32m    [x1,y1,x2,y2] where x1,y1 is the top left and x2,y2 is the bottom right[m
+[32m+[m[32m  """[m
+[32m+[m[32m  w = np.sqrt(x[2] * x[3])[m
+[32m+[m[32m  h = x[2] / w[m
+[32m+[m[32m  if(score==None):[m
+[32m+[m[32m    return np.array([x[0]-w/2.,x[1]-h/2.,x[0]+w/2.,x[1]+h/2.]).reshape((1,4))[m
+[32m+[m[32m  else:[m
+[32m+[m[32m    return np.array([x[0]-w/2.,x[1]-h/2.,x[0]+w/2.,x[1]+h/2.,score]).reshape((1,5))[m
+[32m+[m
+[32m+[m
+[32m+[m[32mclass KalmanBoxTracker(object):[m
+[32m+[m[32m  """[m
+[32m+[m[32m  This class represents the internal state of individual tracked objects observed as bbox.[m
+[32m+[m[32m  """[m
+[32m+[m[32m  count = 0[m
+[32m+[m[32m  def __init__(self,bbox):[m
+[32m+[m[32m    """[m
+[32m+[m[32m    Initialises a tracker using initial bounding box.[m
+[32m+[m[32m    """[m
+[32m+[m[32m    #define constant velocity model[m
+[32m+[m[32m    self.kf = KalmanFilter(dim_x=7, dim_z=4)[m[41m [m
+[32m+[m[32m    self.kf.F = np.array([[1,0,0,0,1,0,0],[0,1,0,0,0,1,0],[0,0,1,0,0,0,1],[0,0,0,1,0,0,0],  [0,0,0,0,1,0,0],[0,0,0,0,0,1,0],[0,0,0,0,0,0,1]])[m
+[32m+[m[32m    self.kf.H = np.array([[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,0,1,0,0,0]])[m
+[32m+[m
+[32m+[m[32m    self.kf.R[2:,2:] *= 10.[m
+[32m+[m[32m    self.kf.P[4:,4:] *= 1000. #give high uncertainty to the unobservable initial velocities[m
+[32m+[m[32m    self.kf.P *= 10.[m
+[32m+[m[32m    self.kf.Q[-1,-1] *= 0.01[m
+[32m+[m[32m    self.kf.Q[4:,4:] *= 0.01[m
+[32m+[m
+[32m+[m[32m    self.kf.x[:4] = convert_bbox_to_z(bbox)[m
+[32m+[m[32m    self.time_since_update = 0[m
+[32m+[m[32m    self.id = KalmanBoxTracker.count[m
+[32m+[m[32m    KalmanBoxTracker.count += 1[m
+[32m+[m[32m    self.history = [][m
+[32m+[m[32m    self.hits = 0[m
+[32m+[m[32m    self.hit_streak = 0[m
+[32m+[m[32m    self.age = 0[m
+[32m+[m
+[32m+[m[32m  def update(self,bbox):[m
+[32m+[m[32m    """[m
+[32m+[m[32m    Updates the state vector with observed bbox.[m
+[32m+[m[32m    """[m
+[32m+[m[32m    self.time_since_update = 0[m
+[32m+[m[32m    self.history = [][m
+[32m+[m[32m    self.hits += 1[m
+[32m+[m[32m    self.hit_streak += 1[m
+[32m+[m[32m    self.kf.update(convert_bbox_to_z(bbox))[m
+[32m+[m
+[32m+[m[32m  def predict(self):[m
+[32m+[m[32m    """[m
+[32m+[m[32m    Advances the state vector and returns the predicted bounding box estimate.[m
+[32m+[m[32m    """[m
+[32m+[m[32m    if((self.kf.x[6]+self.kf.x[2])<=0):[m
+[32m+[m[32m      self.kf.x[6] *= 0.0[m
+[32m+[m[32m    self.kf.predict()[m
+[32m+[m[32m    self.age += 1[m
+[32m+[m[32m    if(self.time_since_update>0):[m
+[32m+[m[32m      self.hit_streak = 0[m
+[32m+[m[32m    self.time_since_update += 1[m
+[32m+[m[32m    self.history.append(convert_x_to_bbox(self.kf.x))[m
+[32m+[m[32m    return self.history[-1][m
+[32m+[m
+[32m+[m[32m  def get_state(self):[m
+[32m+[m[32m    """[m
+[32m+[m[32m    Returns the current bounding box estimate.[m
+[32m+[m[32m    """[m
+[32m+[m[32m    return convert_x_to_bbox(self.kf.x)[m
+[32m+[m
+[32m+[m
+[32m+[m[32mdef associate_detections_to_trackers(detections,trackers,iou_threshold = 0.3):[m
+[32m+[m[32m  """[m
+[32m+[m[32m  Assigns detections to tracked object (both represented as bounding boxes)[m
+[32m+[m
+[32m+[m[32m  Returns 3 lists of matches, unmatched_detections and unmatched_trackers[m
+[32m+[m[32m  """[m
+[32m+[m[32m  if(len(trackers)==0):[m
+[32m+[m[32m    return np.empty((0,2),dtype=int), np.arange(len(detections)), np.empty((0,5),dtype=int)[m
+[32m+[m
+[32m+[m[32m  iou_matrix = iou_batch(detections, trackers)[m
+[32m+[m
+[32m+[m[32m  if min(iou_matrix.shape) > 0:[m
+[32m+[m[32m    a = (iou_matrix > iou_threshold).astype(np.int32)[m
+[32m+[m[32m    if a.sum(1).max() == 1 and a.sum(0).max() == 1:[m
+[32m+[m[32m        matched_indices = np.stack(np.where(a), axis=1)[m
+[32m+[m[32m    else:[m
+[32m+[m[32m      matched_indices = linear_assignment(-iou_matrix)[m
+[32m+[m[32m  else:[m
+[32m+[m[32m    matched_indices = np.empty(shape=(0,2))[m
+[32m+[m
+[32m+[m[32m  unmatched_detections = [][m
+[32m+[m[32m  for d, det in enumerate(detections):[m
+[32m+[m[32m    if(d not in matched_indices[:,0]):[m
+[32m+[m[32m      unmatched_detections.append(d)[m
+[32m+[m[32m  unmatched_trackers = [][m
+[32m+[m[32m  for t, trk in enumerate(trackers):[m
+[32m+[m[32m    if(t not in matched_indices[:,1]):[m
+[32m+[m[32m      unmatched_trackers.append(t)[m
+[32m+[m
+[32m+[m[32m  #filter out matched with low IOU[m
+[32m+[m[32m  matches = [][m
+[32m+[m[32m  for m in matched_indices:[m
+[32m+[m[32m    if(iou_matrix[m[0], m[1]]<iou_threshold):[m
+[32m+[m[32m      unmatched_detections.append(m[0])[m
+[32m+[m[32m      unmatched_trackers.append(m[1])[m
+[32m+[m[32m    else:[m
+[32m+[m[32m      matches.append(m.reshape(1,2))[m
+[32m+[m[32m  if(len(matches)==0):[m
+[32m+[m[32m    matches = np.empty((0,2),dtype=int)[m
+[32m+[m[32m  else:[m
+[32m+[m[32m    matches = np.concatenate(matches,axis=0)[m
+[32m+[m
+[32m+[m[32m  return matches, np.array(unmatched_detections), np.array(unmatched_trackers)[m
+[32m+[m
+[32m+[m
+[32m+[m[32mclass Sort(object):[m
+[32m+[m[32m  def __init__(self, max_age=20, min_hits=3, iou_threshold=0.1):[m
+[32m+[m[32m    """[m
+[32m+[m[32m    Sets key parameters for SORT[m
+[32m+[m[32m    """[m
+[32m+[m[32m    self.max_age = max_age #目标丢失max_age帧后删除追踪[m
+[32m+[m[32m    self.min_hits = min_hits # 连续min_hits帧检测到才初始化为新轨迹[m
+[32m+[m[32m    self.iou_threshold = iou_threshold ## 检测框与预测框IOU大于iou_threshold才匹配[m
+[32m+[m[32m    self.trackers = [][m
+[32m+[m[32m    self.frame_count = 0[m
+[32m+[m[32m    KalmanBoxTracker.count = 0[m
+[32m+[m
+[32m+[m[32m  def update(self, dets=np.empty((0, 5))):[m
+[32m+[m[32m    """[m
+[32m+[m[32m    Params:[m
+[32m+[m[32m      dets - a numpy array of detections in the format [[x1,y1,x2,y2,score],[x1,y1,x2,y2,score],...][m
+[32m+[m[32m    Requires: this method must be called once for each frame even with empty detections (use np.empty((0, 5)) for frames without detections).[m
+[32m+[m[32m    Returns the a similar array, where the last column is the object ID.[m
+[32m+[m
+[32m+[m[32m    NOTE: The number of objects returned may differ from the number of detections provided.[m
+[32m+[m[32m    """[m
+[32m+[m[32m    self.frame_count += 1[m
+[32m+[m[32m    # get predicted locations from existing trackers.[m
+[32m+[m[32m    trks = np.zeros((len(self.trackers), 5))[m
+[32m+[m[32m    to_del = [][m
+[32m+[m[32m    ret = [][m
+[32m+[m[32m    for t, trk in enumerate(trks):[m
+[32m+[m[32m      pos = self.trackers[t].predict()[0][m
+[32m+[m[32m      trk[:] = [pos[0], pos[1], pos[2], pos[3], 0][m
+[32m+[m[32m      if np.any(np.isnan(pos)):[m
+[32m+[m[32m        to_del.append(t)[m
+[32m+[m[32m    trks = np.ma.compress_rows(np.ma.masked_invalid(trks))[m
+[32m+[m[32m    for t in reversed(to_del):[m
+[32m+[m[32m      self.trackers.pop(t)[m
+[32m+[m[32m    matched, unmatched_dets, unmatched_trks = associate_detections_to_trackers(dets,trks, self.iou_threshold)[m
+[32m+[m
+[32m+[m[32m    # update matched trackers with assigned detections[m
+[32m+[m[32m    for m in matched:[m
+[32m+[m[32m      self.trackers[m[1]].update(dets[m[0], :])[m
+[32m+[m
+[32m+[m[32m    # create and initialise new trackers for unmatched detections[m
+[32m+[m[32m    for i in unmatched_dets:[m
+[32m+[m[32m        trk = KalmanBoxTracker(dets[i,:])[m
+[32m+[m[32m        self.trackers.append(trk)[m
+[32m+[m[32m    i = len(self.trackers)[m
+[32m+[m[32m    for trk in reversed(self.trackers):[m
+[32m+[m[32m        d = trk.get_state()[0][m
+[32m+[m[32m        if (trk.time_since_update < 1) and (trk.hit_streak >= self.min_hits or self.frame_count <= self.min_hits):[m
+[32m+[m[32m          ret.append(np.concatenate((d,[trk.id+1])).reshape(1,-1)) # +1 as MOT benchmark requires positive[m
+[32m+[m[32m        i -= 1[m
+[32m+[m[32m        # remove dead tracklet[m
+[32m+[m[32m        if(trk.time_since_update > self.max_age):[m
+[32m+[m[32m          self.trackers.pop(i)[m
+[32m+[m[32m    if(len(ret)>0):[m
+[32m+[m[32m      return np.concatenate(ret)[m
+[32m+[m[32m    return np.empty((0,5))[m
+[32m+[m
+[32m+[m[32mdef parse_args():[m
+[32m+[m[32m    """Parse input arguments."""[m
+[32m+[m[32m    parser = argparse.ArgumentParser(description='SORT demo')[m
+[32m+[m[32m    parser.add_argument('--display', dest='display', help='Display online tracker output (slow) [False]',action='store_true')[m
+[32m+[m[32m    parser.add_argument("--seq_path", help="Path to detections.", type=str, default='data')[m
+[32m+[m[32m    parser.add_argument("--phase", help="Subdirectory in seq_path.", type=str, default='train')[m
+[32m+[m[32m    parser.add_argument("--max_age",[m[41m [m
+[32m+[m[32m                        help="Maximum number of frames to keep alive a track without associated detections.",[m[41m [m
+[32m+[m[32m                        type=int, default=1)[m
+[32m+[m[32m    parser.add_argument("--min_hits",[m[41m [m
+[32m+[m[32m                        help="Minimum number of associated detections before track is initialised.",[m[41m [m
+[32m+[m[32m                        type=int, default=3)[m
+[32m+[m[32m    parser.add_argument("--iou_threshold", help="Minimum IOU for match.", type=float, default=0.3)[m
+[32m+[m[32m    args = parser.parse_args()[m
+[32m+[m[32m    return args[m
+[32m+[m
+[32m+[m[32m#LZ[m
+[32m+[m[32mclass TrackingVisualizer:[m
+[32m+[m[32m    """功能更完整的追踪可视化器"""[m
+[32m+[m[41m    [m
+[32m+[m[32m    def __init__(self, font_path: str = None, id_color_seed: int = 42):[m
+[32m+[m[32m        """[m
+[32m+[m[32m        Args:[m
+[32m+[m[32m            font_path: 字体文件路径，None则使用默认字体[m
+[32m+[m[32m            id_color_seed: 随机种子，确保ID颜色一致性[m
+[32m+[m[32m        """[m
+[32m+[m[32m        self.font_path = font_path[m
+[32m+[m[32m        random.seed(id_color_seed)[m
+[32m+[m[41m        [m
+[32m+[m[32m        # 预生成50种颜色[m
+[32m+[m[32m        self.id_colors = self._generate_distinct_colors(50)[m
+[32m+[m[41m    [m
+[32m+[m[32m    def _generate_distinct_colors(self, n: int) -> list:[m
+[32m+[m[32m        """生成区分度高的颜色"""[m
+[32m+[m[32m        colors = [][m
+[32m+[m[32m        for i in range(n):[m
+[32m+[m[32m            hue = (i * 137.5) % 360  # 黄金角分布[m
+[32m+[m[32m            saturation = 0.7 + random.random() * 0.3[m
+[32m+[m[32m            lightness = 0.5 + random.random() * 0.3[m
+[32m+[m[32m            r, g, b = self._hsl_to_rgb(hue, saturation, lightness)[m
+[32m+[m[32m            colors.append((int(r*255), int(g*255), int(b*255)))[m
+[32m+[m[32m        return colors[m
+[32m+[m[41m    [m
+[32m+[m[32m    @staticmethod[m
+[32m+[m[32m    def _hsl_to_rgb(h, s, l):[m
+[32m+[m[32m        """HSL转RGB"""[m
+[32m+[m[32m        c = (1 - abs(2*l - 1)) * s[m
+[32m+[m[32m        x = c * (1 - abs((h/60) % 2 - 1))[m
+[32m+[m[32m        m = l - c/2[m
+[32m+[m[41m        [m
+[32m+[m[32m        if 0 <= h < 60: r, g, b = c, x, 0[m
+[32m+[m[32m        elif 60 <= h < 120: r, g, b = x, c, 0[m
+[32m+[m[32m        elif 120 <= h < 180: r, g, b = 0, c, x[m
+[32m+[m[32m        elif 180 <= h < 240: r, g, b = 0, x, c[m
+[32m+[m[32m        elif 240 <= h < 300: r, g, b = x, 0, c[m
+[32m+[m[32m        else: r, g, b = c, 0, x[m
+[32m+[m[41m        [m
+[32m+[m[32m        return r+m, g+m, b+m[m
+[32m+[m[41m    [m
+[32m+[m[32m    def draw_tracks([m
+[32m+[m[32m        self,[m
+[32m+[m[32m        image: Image.Image,[m
+[32m+[m[32m        tracks: np.ndarray,[m
+[32m+[m[32m        categories: dict = None,[m
+[32m+[m[32m        font_size: int = 24,[m
+[32m+[m[32m        line_width: int = 3,[m
+[32m+[m[32m        show_trajectory: bool = False,[m
+[32m+[m[32m        trajectory_length: int = 10[m
+[32m+[m[32m    ) -> Image.Image:[m
+[32m+[m[32m        """[m
+[32m+[m[32m        绘制追踪结果[m
+[32m+[m[41m        [m
+[32m+[m[32m        Args:[m
+[32m+[m[32m            show_trajectory: 是否显示轨迹线[m
+[32m+[m[32m            trajectory_length: 轨迹历史长度[m
+[32m+[m[32m        """[m
+[32m+[m[32m        vis_image = image.copy()[m
+[32m+[m[32m        draw = ImageDraw.Draw(vis_image)[m
+[32m+[m[41m        [m
+[32m+[m[32m        # 加载字体[m
+[32m+[m[32m        try:[m
+[32m+[m[32m            font = ImageFont.truetype(self.font_path, font_size)[m
+[32m+[m[32m        except:[m
+[32m+[m[32m            font = ImageFont.load_default()[m
+[32m+[m[41m        [m
+[32m+[m[32m        # 维护轨迹历史（如果需要显示轨迹）[m
+[32m+[m[32m        if show_trajectory and not hasattr(self, 'trajectory_history'):[m
+[32m+[m[32m            self.trajectory_history = defaultdict(list)[m
+[32m+[m[41m        [m
+[32m+[m[32m        for track in tracks:[m
+[32m+[m[32m            if len(track) < 5: continue[m
+[32m+[m[41m            [m
+[32m+[m[32m            x1, y1, x2, y2, track_id = track[:5][m
+[32m+[m[32m            track_id = int(track_id)[m
+[32m+[m[32m            category = categories.get(track_id, "") if categories else ""[m
+[32m+[m[41m            [m
+[32m+[m[32m            color = self.id_colors[track_id % len(self.id_colors)][m
+[32m+[m[41m            [m
+[32m+[m[32m            # 绘制框[m
+[32m+[m[32m            draw.rectangle([x1, y1, x2, y2], outline=color, width=line_width)[m
+[32m+[m[41m            [m
+[32m+[m[32m            # 绘制轨迹线[m
+[32m+[m[32m            if show_trajectory:[m
+[32m+[m[32m                center = ((x1 + x2) / 2, (y1 + y2) / 2)[m
+[32m+[m[32m                self.trajectory_history[track_id].append(center)[m
+[32m+[m[41m                [m
+[32m+[m[32m                if len(self.trajectory_history[track_id]) > trajectory_length:[m
+[32m+[m[32m                    self.trajectory_history[track_id].pop(0)[m
+[32m+[m[41m                [m
+[32m+[m[32m                if len(self.trajectory_history[track_id]) > 1:[m
+[32m+[m[32m                    draw.line([m
+[32m+[m[32m                        self.trajectory_history[track_id],[m
+[32m+[m[32m                        fill=color + (128,),  # 半透明[m
+[32m+[m[32m                        width=2[m
+[32m+[m[32m                    )[m
+[32m+[m[41m            [m
+[32m+[m[32m            # 绘制标签[m
+[32m+[m[32m            label = f"ID:{track_id}"[m
+[32m+[m[32m            if category: label += f" {category}"[m
+[32m+[m[41m            [m
+[32m+[m[32m            bbox = draw.textbbox((0, 0), label, font=font)[m
+[32m+[m[32m            text_w, text_h = bbox[2] - bbox[0], bbox[3] - bbox[1][m
+[32m+[m[41m            [m
+[32m+[m[32m            # 标签背景[m
+[32m+[m[32m            bg_coords = [x1, y1 - text_h - 6, x1 + text_w + 8, y1][m
+[32m+[m[32m            if bg_coords[1] < 0:  # 防止越界[m
+[32m+[m[32m                bg_coords = [x1, y1, x1 + text_w + 8, y1 + text_h + 6][m
+[32m+[m[41m            [m
+[32m+[m[32m            draw.rectangle(bg_coords, fill=color, outline=color)[m
+[32m+[m[32m            draw.text((bg_coords[0] + 4, bg_coords[1] + 3), label,[m[41m [m
+[32m+[m[32m                     fill=(255, 255, 255), font=font)[m
+[32m+[m[41m        [m
+[32m+[m[32m        return vis_image[m
+[32m+[m
+[32m+[m[32m    def draw_detections([m[41m [m
+[32m+[m[32m        self,[m
+[32m+[m[32m        image: Image.Image,[m
+[32m+[m[32m        detections: list,  # 格式: [{'bbox': [x1,y1,x2,y2], 'score': 0.9, 'class_id': 1, 'class_name': 'car'}, ...][m
+[32m+[m[32m        font_size: int = 24,[m
+[32m+[m[32m        line_width: int = 3,[m
+[32m+[m[32m    ) -> Image.Image:[m
+[32m+[m[32m        """绘制检测结果（无时序关联）"""[m
+[32m+[m[32m        vis_image = image.copy()[m
+[32m+[m[32m        draw = ImageDraw.Draw(vis_image)[m
+[32m+[m[41m        [m
+[32m+[m[32m        # 加载字体[m
+[32m+[m[32m        try:[m
+[32m+[m[32m            font = ImageFont.truetype(self.font_path, font_size)[m
+[32m+[m[32m        except:[m
+[32m+[m[32m            font = ImageFont.load_default()[m
+[32m+[m[41m        [m
+[32m+[m[32m        for idx, det in enumerate(detections):[m
+[32m+[m[32m            x1, y1, x2, y2 = det['bbox'][m
+[32m+[m[32m            score = det['score'][m
+[32m+[m[32m            class_name = det['class_name'][m
+[32m+[m[41m            [m
+[32m+[m[32m            # 使用类别ID决定颜色（确保同类别同颜色）[m
+[32m+[m[32m            color = self.id_colors[det['class_id'] % len(self.id_colors)][m
+[32m+[m[41m            [m
+[32m+[m[32m            # 绘制框[m
+[32m+[m[32m            draw.rectangle([x1, y1, x2, y2], outline=color, width=line_width)[m
+[32m+[m[41m            [m
+[32m+[m[32m            # 绘制标签（显示类别和置信度）[m
+[32m+[m[32m            label = f"{class_name}:{score:.2f}"[m
+[32m+[m[32m            bbox = draw.textbbox((0, 0), label, font=font)[m
+[32m+[m[32m            text_w, text_h = bbox[2] - bbox[0], bbox[3] - bbox[1][m
+[32m+[m[41m            [m
+[32m+[m[32m            # 标签背景[m
+[32m+[m[32m            bg_coords = [x1, y1 - text_h - 6, x1 + text_w + 8, y1][m
+[32m+[m[32m            if bg_coords[1] < 0:  # 防止越界[m
+[32m+[m[32m                bg_coords = [x1, y1, x1 + text_w + 8, y1 + text_h + 6][m
+[32m+[m[41m            [m
+[32m+[m[32m            draw.rectangle(bg_coords, fill=color, outline=color)[m
+[32m+[m[32m            draw.text((bg_coords[0] + 4, bg_coords[1] + 3), label,[m[41m [m
+[32m+[m[32m                     fill=(255, 255, 255), font=font)[m
+[32m+[m[41m        [m
+[32m+[m[32m        return vis_image[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m[32mif __name__ == '__main__':[m
+[32m+[m[32m  # all train[m
+[32m+[m[32m  args = parse_args()[m
+[32m+[m[32m  display = args.display[m
+[32m+[m[32m  phase = args.phase[m
+[32m+[m[32m  total_time = 0.0[m
+[32m+[m[32m  total_frames = 0[m
+[32m+[m[32m  colours = np.random.rand(32, 3) #used only for display[m
+[32m+[m[32m  if(display):[m
+[32m+[m[32m    if not os.path.exists('mot_benchmark'):[m
+[32m+[m[32m      print('\n\tERROR: mot_benchmark link not found!\n\n    Create a symbolic link to the MOT benchmark\n    (https://motchallenge.net/data/2D_MOT_2015/#download). E.g.:\n\n    $ ln -s /path/to/MOT2015_challenge/2DMOT2015 mot_benchmark\n\n')[m
+[32m+[m[32m      exit()[m
+[32m+[m[32m    plt.ion()[m
+[32m+[m[32m    fig = plt.figure()[m
+[32m+[m[32m    ax1 = fig.add_subplot(111, aspect='equal')[m
+[32m+[m
+[32m+[m[32m  if not os.path.exists('output'):[m
+[32m+[m[32m    os.makedirs('output')[m
+[32m+[m[32m  pattern = os.path.join(args.seq_path, phase, '*', 'det', 'det.txt')[m
+[32m+[m[32m  for seq_dets_fn in glob.glob(pattern):[m
+[32m+[m[32m    mot_tracker = Sort(max_age=args.max_age,[m[41m [m
+[32m+[m[32m                       min_hits=args.min_hits,[m
+[32m+[m[32m                       iou_threshold=args.iou_threshold) #create instance of the SORT tracker[m
+[32m+[m[32m    seq_dets = np.loadtxt(seq_dets_fn, delimiter=',')[m
+[32m+[m[32m    seq = seq_dets_fn[pattern.find('*'):].split(os.path.sep)[0][m
+[32m+[m[41m    [m
+[32m+[m[32m    with open(os.path.join('output', '%s.txt'%(seq)),'w') as out_file:[m
+[32m+[m[32m      print("Processing %s."%(seq))[m
+[32m+[m[32m      for frame in range(int(seq_dets[:,0].max())):[m
+[32m+[m[32m        frame += 1 #detection and frame numbers begin at 1[m
+[32m+[m[32m        dets = seq_dets[seq_dets[:, 0]==frame, 2:7][m
+[32m+[m[32m        dets[:, 2:4] += dets[:, 0:2] #convert to [x1,y1,w,h] to [x1,y1,x2,y2][m
+[32m+[m[32m        total_frames += 1[m
+[32m+[m
+[32m+[m[32m        if(display):[m
+[32m+[m[32m          fn = os.path.join('mot_benchmark', phase, seq, 'img1', '%06d.jpg'%(frame))[m
+[32m+[m[32m          im =io.imread(fn)[m
+[32m+[m[32m          ax1.imshow(im)[m
+[32m+[m[32m          plt.title(seq + ' Tracked Targets')[m
+[32m+[m
+[32m+[m[32m        start_time = time.time()[m
+[32m+[m[32m        trackers = mot_tracker.update(dets)[m
+[32m+[m[32m        cycle_time = time.time() - start_time[m
+[32m+[m[32m        total_time += cycle_time[m
+[32m+[m
+[32m+[m[32m        for d in trackers:[m
+[32m+[m[32m          print('%d,%d,%.2f,%.2f,%.2f,%.2f,1,-1,-1,-1'%(frame,d[4],d[0],d[1],d[2]-d[0],d[3]-d[1]),file=out_file)[m
+[32m+[m[32m          if(display):[m
+[32m+[m[32m            d = d.astype(np.int32)[m
+[32m+[m[32m            ax1.add_patch(patches.Rectangle((d[0],d[1]),d[2]-d[0],d[3]-d[1],fill=False,lw=3,ec=colours[d[4]%32,:]))[m
+[32m+[m
+[32m+[m[32m        if(display):[m
+[32m+[m[32m          fig.canvas.flush_events()[m
+[32m+[m[32m          plt.draw()[m
+[32m+[m[32m          ax1.cla()[m
+[32m+[m
+[32m+[m[32m  print("Total Tracking took: %.3f seconds for %d frames or %.1f FPS" % (total_time, total_frames, total_frames / total_time))[m
+[32m+[m
+[32m+[m[32m  if(display):[m
+[32m+[m[32m    print("Note: to get real runtime results run without the option: --display")[m
+[1mdiff --git a/Rex-Omni/SORT/testTrackingSort.py b/Rex-Omni/SORT/testTrackingSort.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..b97209a[m
+[1m--- /dev/null[m
+[1m+++ b/Rex-Omni/SORT/testTrackingSort.py[m
+[36m@@ -0,0 +1,181 @@[m
+[32m+[m[32m# [FINAL VERSION 3] - Fixes the DeprecationWarning for future NumPy compatibility.[m
+[32m+[m[32mfrom __future__ import absolute_import[m
+[32m+[m[32mfrom __future__ import division[m
+[32m+[m[32mfrom __future__ import print_function[m
+[32m+[m
+[32m+[m[32mimport os[m
+[32m+[m[32mfrom lib.utils.opts import opts[m
+[32m+[m[32mopt = opts().parse()[m
+[32m+[m[32mos.environ['CUDA_VISIBLE_DEVICES'] = opt.gpus_str[m
+[32m+[m[32mimport numpy as np[m
+[32m+[m[32mimport time[m
+[32m+[m[32mimport torch[m
+[32m+[m[32mfrom collections import defaultdict[m
+[32m+[m
+[32m+[m[32mfrom lib.models.stNet import get_det_net, load_model[m
+[32m+[m[32mfrom lib.dataset.coco_icpr import COCO[m
+[32m+[m[32mfrom lib.utils.decode import ctdet_decode[m
+[32m+[m[32mfrom lib.utils.post_process import generic_post_process[m
+[32m+[m[32mfrom lib.utils.sort import Sort[m
+[32m+[m[32mfrom progress.bar import Bar[m
+[32m+[m
+[32m+[m
+[32m+[m[32mdef pre_process(image_tensor, scale=1):[m
+[32m+[m[32m    height, width = image_tensor.shape[2], image_tensor.shape[3][m
+[32m+[m[32m    new_height = int(height * scale)[m
+[32m+[m[32m    new_width = int(width * scale)[m
+[32m+[m[32m    c = np.array([new_width / 2., new_height / 2.], dtype=np.float32)[m
+[32m+[m[32m    s = max(height, width) * 1.0[m
+[32m+[m[32m    meta = {'c': c, 's': s,[m
+[32m+[m[32m            'out_height': new_height,[m
+[32m+[m[32m            'out_width': new_width}[m
+[32m+[m[32m    return meta[m
+[32m+[m
+[32m+[m[32mdef convert_dets_for_sort(dets_by_class, num_classes, conf_thres):[m
+[32m+[m[32m    dets_for_sort = {}[m
+[32m+[m[32m    for cls_id in range(1, num_classes + 1):[m
+[32m+[m[32m        list_index = cls_id - 1[m
+[32m+[m[41m        [m
+[32m+[m[32m        if list_index < len(dets_by_class):[m
+[32m+[m[32m            detections = dets_by_class[list_index][m
+[32m+[m[32m        else:[m
+[32m+[m[32m            detections = [][m
+[32m+[m
+[32m+[m[32m        filtered_dets = [][m
+[32m+[m[32m        for item in detections:[m
+[32m+[m[32m            if 'score' in item and item['score'] > conf_thres:[m
+[32m+[m[41m                [m
+[32m+[m[32m                bbox_list = item['bbox'].tolist()[m
+[32m+[m[32m                # [THE FIX FOR THE WARNING] Extract the single element before converting to float.[m
+[32m+[m[32m                score_float = float(item['score'][0])[m
+[32m+[m[32m                filtered_dets.append(bbox_list + [score_float])[m
+[32m+[m[41m        [m
+[32m+[m[32m        if len(filtered_dets) > 0:[m
+[32m+[m[32m            dets_for_sort[cls_id] = np.array(filtered_dets, dtype=np.float32)[m
+[32m+[m[32m        else:[m
+[32m+[m[32m            dets_for_sort[cls_id] = np.empty((0, 5), dtype=np.float32)[m
+[32m+[m[41m            [m
+[32m+[m[32m    return dets_for_sort[m
+[32m+[m
+[32m+[m
+[32m+[m[32mdef test(opt, split, modelPath):[m
+[32m+[m[32m    print(f"模型名称: {opt.model_name}")[m
+[32m+[m[32m    print(f"加载模型权重: {modelPath}")[m
+[32m+[m[41m    [m
+[32m+[m[32m    dataset = COCO(opt, split)[m
+[32m+[m[32m    data_loader = torch.utils.data.DataLoader(dataset, batch_size=1, shuffle=False, num_workers=8, pin_memory=True)[m
+[32m+[m[32m    num_classes = dataset.num_classes[m
+[32m+[m
+[32m+[m[32m    print("正在加载模型...")[m
+[32m+[m[32m    model = get_det_net({'hm': num_classes, 'wh': 2, 'reg': 2, 'dis': 2}, opt.model_name)[m
+[32m+[m[32m    model = load_model(model, modelPath)[m
+[32m+[m[32m    model = model.cuda()[m
+[32m+[m[32m    model.eval()[m
+[32m+[m[32m    print("模型加载完毕。")[m
+[32m+[m
+[32m+[m[32m    trackers = {}[m[41m [m
+[32m+[m
+[32m+[m[32m    saveTxt = opt.save_track_results[m
+[32m+[m[32m    if saveTxt:[m
+[32m+[m[32m        track_results_save_dir = os.path.join(opt.save_results_dir, 'trackingResults_SORT_25epoch_0.3_' + opt.model_name)[m
+[32m+[m[32m        if not os.path.exists(track_results_save_dir):[m
+[32m+[m[32m            os.makedirs(track_results_save_dir)[m
+[32m+[m[41m    [m
+[32m+[m[32m    file_folder_pre = 'INIT'[m
+[32m+[m[32m    fid = None[m
+[32m+[m[32m    bar = Bar('Processing', max=len(data_loader))[m
+[32m+[m[41m    [m
+[32m+[m[32m    total_processing_time = 0.0[m
+[32m+[m[32m    total_frames_processed = 0[m
+[32m+[m[41m    [m
+[32m+[m[32m    for ind, (img_id, pre_processed_images) in enumerate(data_loader):[m
+[32m+[m[32m        if 'file_name' not in pre_processed_images: continue[m
+[32m+[m
+[32m+[m[32m        torch.cuda.synchronize()[m
+[32m+[m[32m        start_time = time.time()[m
+[32m+[m
+[32m+[m[32m        file_name = pre_processed_images['file_name'][0][m
+[32m+[m[32m        file_folder_cur = file_name.split('_')[0][m
+[32m+[m[41m        [m
+[32m+[m[32m        if file_folder_cur != file_folder_pre:[m
+[32m+[m[32m            print(f"\n检测到新视频序列: {file_folder_cur}")[m
+[32m+[m[32m            if fid: fid.close()[m
+[32m+[m[41m            [m
+[32m+[m[32m            trackers = {}[m[41m [m
+[32m+[m[32m            for i in range(1, num_classes + 1):[m
+[32m+[m[32m                trackers[i] = Sort(max_age=opt.max_age, min_hits=3, iou_threshold=opt.iou_threshold if hasattr(opt, 'iou_threshold') else 0.3)[m
+[32m+[m
+[32m+[m[32m            im_count = 0[m
+[32m+[m[32m            if saveTxt:[m
+[32m+[m[32m                txt_path = os.path.join(track_results_save_dir, file_folder_cur + '.txt')[m
+[32m+[m[32m                fid = open(txt_path, 'w+')[m
+[32m+[m[32m            file_folder_pre = file_folder_cur[m
+[32m+[m
+[32m+[m[32m        image_tensor = pre_processed_images['input'][m
+[32m+[m[41m        [m
+[32m+[m[32m        with torch.no_grad():[m
+[32m+[m[32m            output = model(image_tensor.cuda(), training=False)[-1][1][m
+[32m+[m[32m            hm, wh = output['hm'].sigmoid_(), output['wh'][m
+[32m+[m[32m            reg = output['reg'] if 'reg' in output else None[m
+[32m+[m[32m            dis = output['dis'] if 'dis' in output else None[m
+[32m+[m[41m            [m
+[32m+[m[32m            dets_feature_map = ctdet_decode(hm, wh, reg=reg, tracking=dis, num_classes=num_classes, K=opt.K)[m
+[32m+[m[32m            for k in dets_feature_map: dets_feature_map[k] = dets_feature_map[k].detach().cpu().numpy()[m
+[32m+[m
+[32m+[m[32m        meta = pre_process(image_tensor)[m
+[32m+[m[32m        dets_image_map_by_class = generic_post_process([m
+[32m+[m[32m            dets_feature_map, [meta['c']], [meta['s']],[m[41m [m
+[32m+[m[32m            meta['out_height'] // opt.down_ratio,[m[41m [m
+[32m+[m[32m            meta['out_width'] // opt.down_ratio,[m[41m [m
+[32m+[m[32m            num_classes[m
+[32m+[m[32m        )[m
+[32m+[m[41m        [m
+[32m+[m[32m        dets_for_sort = convert_dets_for_sort(dets_image_map_by_class, num_classes, opt.conf_thres)[m
+[32m+[m[41m        [m
+[32m+[m[32m        im_count += 1[m
+[32m+[m[41m        [m
+[32m+[m[32m        for cls_id in range(1, num_classes + 1):[m
+[32m+[m[32m            if cls_id in trackers:[m
+[32m+[m[32m                tracked_objects = trackers[cls_id].update(dets_for_sort.get(cls_id, np.empty((0, 5))))[m
+[32m+[m[41m                [m
+[32m+[m[32m                if saveTxt and fid is not None and len(tracked_objects) > 0:[m
+[32m+[m[32m                    for d in tracked_objects:[m
+[32m+[m[32m                        x1, y1, x2, y2, track_id = d[m
+[32m+[m[32m                        w, h = x2 - x1, y2 - y1[m
+[32m+[m[32m                        line = f"{im_count},{int(track_id)},{x1:.2f},{y1:.2f},{w:.2f},{h:.2f},1,{cls_id},1\n"[m
+[32m+[m[32m                        fid.write(line)[m
+[32m+[m[41m        [m
+[32m+[m[32m        torch.cuda.synchronize()[m
+[32m+[m[32m        end_time = time.time()[m
+[32m+[m[32m        total_processing_time += (end_time - start_time)[m
+[32m+[m[32m        total_frames_processed += 1[m
+[32m+[m[41m        [m
+[32m+[m[32m        bar.suffix = f"[{ind}/{len(data_loader)}]|ETA: {bar.eta_td}"[m
+[32m+[m[32m        bar.next()[m
+[32m+[m[41m    [m
+[32m+[m[32m    if fid: fid.close()[m
+[32m+[m[32m    bar.finish()[m
+[32m+[m
+[32m+[m[32m    if total_processing_time > 0:[m
+[32m+[m[32m        average_fps = total_frames_processed / total_processing_time[m
+[32m+[m[32m        print("\n\n" + "="*50)[m
+[32m+[m[32m        print("           算法性能测试结果 (SORT Version)")[m
+[32m+[m[32m        print("="*50)[m
+[32m+[m[32m        print(f"  总处理帧数: {total_frames_processed} 帧")[m
+[32m+[m[32m        print(f"  总耗时: {total_processing_time:.3f} 秒")[m
+[32m+[m[32m        print(f"  平均FPS (帧/秒): {average_fps:.2f}")[m
+[32m+[m[32m        print("="*50)[m
+[32m+[m[32m    else:[m
+[32m+[m[32m        print("\n未能处理任何帧，无法计算FPS。")[m
+[32m+[m
+[32m+[m[32mif __name__ == '__main__':[m
+[32m+[m[32m    if not hasattr(opt, 'conf_thres'): opt.conf_thres = 0.3[m
+[32m+[m[32m    if not hasattr(opt, 'max_age'): opt.max_age = 30[m
+[32m+[m[32m    if not hasattr(opt, 'split'): opt.split = 'val'[m
+[32m+[m[41m    [m
+[32m+[m[32m    if not os.path.exists(opt.save_results_dir):[m
+[32m+[m[32m        os.makedirs(opt.save_results_dir)[m
+[32m+[m
+[32m+[m[32m    modelPath = opt.load_model if opt.load_model != '' else './checkpoints/MP2Net.pth'[m
+[32m+[m[41m    [m
+[32m+[m[32m    test(opt, opt.split, modelPath)[m
+\ No newline at end of file[m
+[1mdiff --git a/Rex-Omni/app.py b/Rex-Omni/app.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..8bdca72[m
+[1m--- /dev/null[m
+[1m+++ b/Rex-Omni/app.py[m
+[36m@@ -0,0 +1,940 @@[m
+[32m+[m[32m#!/usr/bin/env python[m
+[32m+[m[32m# -*- coding: utf-8 -*-[m
+[32m+[m
+[32m+[m[32mimport argparse[m
+[32m+[m[32mimport gc[m
+[32m+[m[32mimport json[m
+[32m+[m[32mimport os[m
+[32m+[m[32mimport re[m
+[32m+[m[32mfrom typing import Any, Dict, List[m
+[32m+[m
+[32m+[m[32mimport gradio as gr[m
+[32m+[m[32mimport numpy as np[m
+[32m+[m[32mimport torch[m
+[32m+[m[32mfrom gradio_image_prompter import ImagePrompter[m
+[32m+[m[32mfrom PIL import Image[m
+[32m+[m
+[32m+[m[32mfrom rex_omni import RexOmniVisualize, RexOmniWrapper, TaskType[m
+[32m+[m[32mfrom rex_omni.tasks import KEYPOINT_CONFIGS, TASK_CONFIGS, get_task_config[m
+[32m+[m
+[32m+[m
+[32m+[m[32mdef parse_args():[m
+[32m+[m[32m    parser = argparse.ArgumentParser(description="Rex Omni Gradio Demo")[m
+[32m+[m[32m    parser.add_argument([m
+[32m+[m[32m        "--model_path",[m
+[32m+[m[32m        default="IDEA-Research/Rex-Omni",[m
+[32m+[m[32m        help="Model path or HuggingFace repo ID",[m
+[32m+[m[32m    )[m
+[32m+[m[32m    parser.add_argument([m
+[32m+[m[32m        "--backend",[m
+[32m+[m[32m        type=str,[m
+[32m+[m[32m        default="transformers",[m
+[32m+[m[32m        choices=["transformers", "vllm"],[m
+[32m+[m[32m        help="Backend to use for inference",[m
+[32m+[m[32m    )[m
+[32m+[m[32m    parser.add_argument("--temperature", type=float, default=0.0)[m
+[32m+[m[32m    parser.add_argument("--top_p", type=float, default=0.05)[m
+[32m+[m[32m    parser.add_argument("--top_k", type=int, default=1)[m
+[32m+[m[32m    parser.add_argument("--max_tokens", type=int, default=2048)[m
+[32m+[m[32m    parser.add_argument("--repetition_penalty", type=float, default=1.05)[m
+[32m+[m[32m    parser.add_argument("--min_pixels", type=int, default=16 * 28 * 28)[m
+[32m+[m[32m    parser.add_argument("--max_pixels", type=int, default=2560 * 28 * 28)[m
+[32m+[m[32m    parser.add_argument("--server_name", type=str, default="0.0.0.0")[m
+[32m+[m[32m    parser.add_argument("--server_port", type=int, default=6121)[m
+[32m+[m[32m    args = parser.parse_args()[m
+[32m+[m[32m    return args[m
+[32m+[m
+[32m+[m
+[32m+[m[32m# Task configurations with detailed descriptions[m
+[32m+
